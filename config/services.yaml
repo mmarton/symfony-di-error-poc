@@ -1,0 +1,17 @@
+parameters:
+    locale: 'en'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+
+    App\DoctrineLogSubscriber:
+        arguments: ['@monolog.logger.demo']
+        tags:
+            - { name: doctrine.event_subscriber }
