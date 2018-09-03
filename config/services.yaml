@@ -11,7 +11,7 @@ services:
         resource: '../src/*'
         exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
 
-    App\DoctrineLogSubscriber:
+    App\EventSubscriber\DoctrineLogSubscriber:
         arguments: ['@monolog.logger.demo']
         tags:
             - { name: doctrine.event_subscriber }
